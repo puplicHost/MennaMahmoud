@@ -1,0 +1,1560 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Menna Mahmoud Esmail | Content Creator</title>
+<style>
+  :root {
+    --primary-color: #521002;
+    --primary-dark: #4b0c5c;
+    --text-color: #521002;
+    --text-muted: #521002;
+    --background-color: #f8e6c9;
+    --section-bg: #f8e6c9;
+    --border-color: #f8e6c9;
+  }
+
+  * { box-sizing: border-box; margin:0; padding:0; font-family:"Cairo", sans-serif; }
+  body { background:var(--background-color); color:var(--text-color); display:flex; flex-direction:column; min-height:100vh; }
+  main { flex:1; }
+
+  header { display:flex; justify-content:space-between; align-items:center; padding:30px 10%; background:var(--background-color); border-bottom:3px solid var(--primary-color); flex-wrap:wrap; }
+  .profile { display:flex; align-items:center; gap:20px; flex:1; }
+  .profile img { width:120px; height:120px; border-radius:50%; object-fit:cover; border:4px solid var(--primary-color); }
+  .profile-info { text-align:left; }
+  .profile-info h1 { font-size:24px; margin-bottom:5px; color:var(--primary-color); font-weight:700; }
+  .profile-info p { color:var(--text-muted); font-size:16px; margin-bottom:8px; }
+  .social-links { display:flex; gap:15px; margin-top:5px; }
+  .social-links a { color:var(--primary-color); font-size:20px; text-decoration:none; transition:0.3s; }
+  .social-links a:hover { color:var(--primary-dark); }
+  .cv-button { display:inline-block; margin-top:15px; padding:12px 25px; background:var(--primary-color); color:var(--background-color); text-decoration:none; border-radius:8px; font-weight:bold; transition:0.3s; box-shadow:0 2px 8px rgba(82,47,149,0.3); }
+  .cv-button:hover { background:var(--primary-dark); transform:translateY(-2px); box-shadow:0 4px 12px rgba(82,47,149,0.4); }
+  .about { flex:1; font-size:16px; line-height:1.8; color:var(--text-muted); text-align:right; margin-top:20px; }
+
+  nav { display:flex; justify-content:center; flex-wrap:wrap; background:var(--primary-color); padding:15px; position:sticky; top:0; z-index:100; box-shadow:0 2px 8px rgba(0,0,0,0.1); }
+  nav button { background:none; border:none; font-size:18px; margin:5px 15px; cursor:pointer; color:var(--background-color); padding:10px 20px; border-radius:8px; transition:0.3s; }
+  nav button:hover { background:var(--primary-dark); }
+  nav button.active { background:var(--background-color); color:var(--primary-color); font-weight:bold; box-shadow:0 2px 6px rgba(0,0,0,0.15); }
+
+  .section { display:none; padding:40px 10%; background:var(--background-color); margin:30px auto; border-radius:12px; max-width:1000px; box-shadow:0 2px 10px rgba(0,0,0,0.05); border-right:5px solid var(--primary-color); animation:fadeIn 0.5s ease; }
+  .section.active { display:flex; flex-direction:column; gap:30px; }
+  .section-content { width:100%; text-align:right; }
+
+  .section h2 { color:var(--primary-color); margin-bottom:15px; font-size:22px; }
+  .section p, .section ul { font-size:16px; line-height:1.8; color:var(--text-muted); }
+  .section ul { padding-right:20px; list-style-type:square; }
+
+  @keyframes fadeIn { from{opacity:0;} to{opacity:1;} }
+
+  footer { background:var(--primary-color); color:var(--background-color); text-align:center; padding:20px 10px; margin-top:auto; }
+  footer a { color:var(--background-color); text-decoration:underline; }
+
+  /* المهارات */
+  .skill { margin-bottom:20px; }
+  .skill-name { font-weight:bold; margin-bottom:5px; font-size:16px; }
+  .skill-bar { background:#e0e0e0; border-radius:20px; overflow:hidden; height:20px; }
+  .skill-level { height:100%; border-radius:20px; background:var(--primary-color); color:var(--background-color); text-align:right; padding-right:10px; line-height:20px; font-weight:bold; animation:fillSkill 2s ease forwards; }
+  @keyframes fillSkill { from{width:0;} }
+
+  /* معرض الأعمال */
+  .portfolio-container { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; margin-top:20px; }
+  .portfolio-item { background:var(--background-color); border-radius:12px; overflow:hidden; border:1px solid var(--border-color); text-align:center; padding-bottom:15px; transition:transform 0.3s, box-shadow 0.3s; }
+  .portfolio-item:hover { transform:translateY(-5px); box-shadow:0 5px 15px rgba(0,0,0,0.1); }
+  .portfolio-item img { width:100%; height:180px; object-fit:cover; }
+  .portfolio-item p { margin:10px 0; color:var(--text-color); }
+  .portfolio-item .btn { display:inline-block; padding:8px 16px; background-color:var(--primary-color); color:var(--background-color); border-radius:8px; font-weight:bold; transition:background-color 0.3s; }
+  .portfolio-item .btn:hover { background-color:var(--primary-dark); }
+
+  /* تايم لاين الخبرات */
+  .timeline { position:relative; margin:30px 0; padding-left:20px; border-left:3px solid var(--primary-color); }
+  .timeline-item { position:relative; margin-bottom:30px; padding-left:20px; }
+  .timeline-item::before { content:""; position:absolute; left:-10px; top:0; width:20px; height:20px; background:var(--primary-color); border-radius:50%; border:3px solid var(--background-color); }
+  .timeline-date { font-weight:bold; color:var(--primary-color); margin-bottom:5px; }
+
+  /* الاستجابة */
+  @media(max-width:768px){
+    header { flex-direction:column; align-items:flex-start; padding:20px 5%; }
+    .profile { flex-direction:row; }
+    .about { margin-top:15px; }
+    nav { flex-direction:column; gap:5px; }
+    .portfolio-container { grid-template-columns:1fr; }
+  }
+
+  @media(max-width:480px){
+    .section { padding:30px 5%; margin:20px 0; }
+    .skill-level { font-size:12px; padding-right:5px; }
+  }
+
+  #portfolio {
+    background: var(--section-bg);
+    padding: 60px 20px;
+    text-align: center;
+  }
+
+  .section-title {
+    font-size: 28px;
+    margin-bottom: 40px;
+    color: var(--text-color);
+  }
+
+  .cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+  }
+
+  .card {
+    background: var(--background-color);
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    width: 300px;
+    padding: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  }
+
+  .card h3 {
+    font-size: 22px;
+    color: var(--text-color);
+    margin-bottom: 10px;
+  }
+
+  .card p {
+    font-size: 15px;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 10px 18px;
+    background: var(--primary-color);
+    color: var(--background-color);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+  }
+
+  .btn:hover {
+    background: var(--primary-dark);
+  }
+
+  /* Services */
+  .services-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+  }
+
+  .service-item {
+    background: var(--background-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .service-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(82, 16, 2, 0.2);
+  }
+
+  .service-icon {
+    width: 60px;
+    height: 60px;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .service-item h3 {
+    font-size: 18px;
+    color: var(--primary-color);
+    margin: 0;
+    font-weight: 700;
+  }
+
+  @media(max-width: 768px) {
+    .services-container {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Skills - Same style as Services */
+  .skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+  }
+
+  .skill-item {
+    background: var(--background-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .skill-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(82, 16, 2, 0.2);
+  }
+
+  .skill-icon {
+    width: 60px;
+    height: 60px;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .skill-item h3 {
+    font-size: 18px;
+    color: var(--primary-color);
+    margin: 0;
+    font-weight: 700;
+  }
+
+  .skill-item p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin: 0;
+    text-align: center;
+  }
+
+  @media(max-width: 768px) {
+    .skills-container {
+      grid-template-columns: 1fr;
+    }
+  }
+
+    #clients .img-container img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--primary-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  #clients .img-container img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(0,0,0,0.15);
+  }
+
+  @media (max-width: 600px) {
+    #clients .img-container img {
+      width: 60px;
+      height: 60px;
+    }
+  }
+
+
+
+#Portfolio {
+  padding: 80px 10%;
+  background: var(--background-color);
+  direction: rtl;
+}
+
+/* المحتوى الأساسي */
+#Portfolio .section-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+#Portfolio .brand-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+#Portfolio .brand-image img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  border: 4px solid var(--section-bg);
+}
+
+#Portfolio .brand-description {
+  flex: 2;
+}
+
+#Portfolio .brand-description h2 {
+  color: var(--primary-color);
+  font-size: 30px;
+  margin-bottom: 15px;
+}
+
+#Portfolio .brand-description p {
+  color: var(--text-color);
+  font-size: 17px;
+  line-height: 1.9;
+}
+
+/* الكروت */
+.services-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.service-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: var(--section-bg);
+  border: 2px solid var(--border-color);
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.service-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.service-icon {
+  flex-shrink: 0;
+  width: 200px;
+  min-width: 200px;
+  height: 200px;
+  margin-left: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.service-icon img {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.service-icon img:hover {
+  opacity: 0.9;
+}
+
+.service-text {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.service-text p {
+  color: var(--text-color);
+  font-size: 16px;
+  line-height: 1.9;
+  margin: 0;
+  text-align: right;
+  white-space: pre-line;
+}
+
+/* Portfolio images grid for images without text */
+.portfolio-images-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+
+.portfolio-images-grid img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.portfolio-images-grid img:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(82, 16, 2, 0.2);
+}
+
+/* Lightbox/Modal Styles */
+.image-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  animation: fadeIn 0.3s ease;
+  cursor: pointer;
+}
+
+.image-modal.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-modal-content {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  border-radius: 8px;
+  animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.image-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1001;
+  transition: color 0.3s ease;
+}
+
+.image-modal-close:hover {
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .image-modal-close {
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+  }
+  
+  .image-modal-content {
+    max-width: 95%;
+    max-height: 95%;
+  }
+}
+
+/* 📱 تحسين الموبايل */
+@media (max-width: 992px) {
+  #Portfolio {
+    padding: 60px 6%;
+  }
+
+  /* ترتيب محتوى البراند */
+  #Portfolio .section-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  #Portfolio .brand-description {
+    flex: unset;
+    width: 100%;
+  }
+
+  #Portfolio .brand-description h2 {
+    font-size: 26px;
+  }
+
+  #Portfolio .brand-image {
+    order: -1;
+    margin-bottom: 20px;
+  }
+
+  /* ترتيب الكروت */
+  .service-item {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    height: auto;
+  }
+
+  .service-icon {
+    width: 100%;
+    min-width: 100%;
+    height: 250px;
+    margin: 0 0 20px 0;
+  }
+  .service-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin: 0;
+    border-radius: 12px;
+  } 
+
+  .service-text {
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .service-text p {
+    text-align: right;
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  .portfolio-images-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .portfolio-images-grid img {
+    height: 250px;
+  }
+}
+
+
+</style>
+
+</head>
+<body>
+
+<header>
+  <div class="profile">
+    <!-- <img src="logo.jpeg" alt="Menna Mahmoud Esmail" /> -->
+    <div class="profile-info">
+      <h1>Menna Mahmoud Esmail</h1>
+     <p>Content Creator</p>
+      <div class="social-links">
+        <a href="mailto:mennaesmail161@gmail.com" target="_blank" aria-label="Email">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 2v.01L12 13 4 6.01V6h16zM4 18V8.99l8 6 8-6V18H4z"/>
+          </svg>
+        </a>
+      
+        <a href="tel:+201522486" target="_blank" aria-label="Phone">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21 11.36 11.36 0 003.54.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.54 1 1 0 01-.21 1.11l-2.24 2.14z"/>
+          </svg>
+        </a>
+      
+        <a href="https://www.linkedin.com/in/menna-mahmoud" target="_blank" aria-label="LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+          </svg>
+        </a>
+      </div>
+      <a href="cv.pdf" download="Menna_Mahmoud_CV.pdf" class="cv-button">
+         Download CV
+      </a>
+    </div>
+  </div>
+
+  <div class="about">
+<p>أنا صانعة محتوى بخبرة أكتر من سنة في كتابة وإدارة المحتوى لمجالات متنوعة، اشتغلت خلالها مع شركات وأفراد وقدرت أقدّم محتوى يعبر عن هوية البراند ويوصل رسالته بوضوح.
+عندي خبرة عملية في بيئة الماركتنج إيجينسي، وده ساعدني أتعامل مع عملاء من مجالات مختلفة وأفهم أهداف كل مشروع وطبيعة جمهوره عشان أقدّم محتوى فعّال ومناسب لكل براند.</p>
+  </div>
+</header>
+
+<main>
+  <nav>
+    <button class="active" onclick="showSection('experience', this)">خبرتي العملية</button>
+    <button onclick="showSection('skills', this)">مهاراتي</button>
+    <button onclick="showSection('clients', this)">عملائي</button>
+    <button onclick="showSection('services', this)">خدماتي</button>
+    <button onclick="showSection('education', this)">التعليم</button>
+   <button onclick="showSection('Portfolio', this)">اعمالى</button>
+    
+   
+  </nav>
+
+  <!-- خبرتي العملية -->
+  <section id="experience" class="section active ">
+    <div class="section-content">
+      <h2>خبرتي العملية</h2>
+      <p style="font-size:16px; line-height:1.8; margin-bottom:30px; color:var(--text-muted);">بدأت رحلتي في مجال صناعة المحتوى من خلال العمل التطوعي مع منظمات مختلفة، وده ساعدني أتعلم الأساسيات وأكتسب خبرة واقعية في التعامل مع أنواع متنوعة من المشاريع والجماهير.</p>
+      
+      <p style="font-size:16px; line-height:1.8; margin-bottom:30px; color:var(--text-muted);">مع الوقت طورت نفسي خطوة بخطوة من خلال التدريب والممارسة والدراسة، فحضرت عدة كورسات متخصصة زي:</p>
+      
+      <ul style="font-size:16px; line-height:1.8; margin-bottom:30px; padding-right:20px;">
+        <li>On Track Courses</li>
+        <li>Mastermind Community</li>
+        <li>Yanfa Courses</li>
+        <li>Ahmed Hatem Course</li>
+      </ul>
+      
+      <p style="font-size:16px; line-height:1.8; margin-bottom:30px; color:var(--text-muted);">كل كورس فيهم أضاف لي جانب جديد سواء في كتابة المحتوى أو التخطيط أو فهم السوق.</p>
+      
+      <p style="font-size:16px; line-height:1.8; margin-bottom:30px; color:var(--text-muted);">حصلت على فرص تدريب عملي (Internships) في شركات تسويق، وده ساعدني أطبق اللي اتعلمته فعليًا وأتعامل مع بيئة عمل حقيقية ومتطلبات عملاء مختلفة.</p>
+      
+      <p style="font-size:16px; line-height:1.8; margin-bottom:30px; color:var(--text-muted);">بعد كده بدأت أشتغل شغل فعلي، وقدرت أتعامل مع أكتر من 25 عميل من مجالات مختلفة، وأقدّم محتوى يناسب كل براند وأهدافه وجمهوره.</p>
+      
+      <!-- <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date">أبريل 2025 - حالياً</div>
+          <h3>صانعة محتوى عن بُعد - Dezaagy Marketing</h3>
+          <ul>
+            <li>قيادة تخطيط المحتوى وتوليد الأفكار للعملاء في قطاعات متنوعة، بما في ذلك عيادات الأسنان والمطاعم والأثاث وUPVC والعقارات وصالونات التجميل.</li>
+            <li>تطوير جداول المحتوى الشهرية والمفاهيم الإبداعية المتماشية مع أهداف التسويق لكل براند.</li>
+            <li>التعاون مع المصممين وفريق التسويق لضمان حملات متسقة وعالية التأثير.</li>
+          </ul>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">عمل حر</div>
+          <h3>صانعة محتوى (Freelance)</h3>
+          <ul>
+            <li>تطوير استراتيجيات السوشيال ميديا الكاملة وخطط المحتوى الشهرية المخصصة لأهداف وجمهور كل عميل.</li>
+            <li>إنشاء محتوى جذاب ومتناسق مع البراند لمنصات مثل Instagram وFacebook، يغطي صناعات مثل تصنيع الزجاج وعصر الزيوت ومراكز علاج النطق للأطفال.</li>
+            <li>تعديل الرسائل والاتجاه الإبداعي بناءً على صناعة ونبرة وسلوك الجمهور لكل مشروع.</li>
+          </ul>
+        </div>
+      </div> -->
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section id="education" class="section">
+    <div class="section-content">
+      <h2>التعليم</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date">2021 - يوليو 2025</div>
+          <h3>كلية الزراعة، جامعة المنصورة</h3>
+          <p>درجة البكالوريوس في العلوم الزراعية</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills & Languages -->
+
+
+  <!-- مهاراتي -->
+  <section id="skills" class="section">
+    <div class="section-content">
+      <h2>مهاراتي</h2>
+      
+      <h3 style="color:var(--primary-color); font-size:22px; margin-top:30px; margin-bottom:20px; text-align:right;">Technical Skills</h3>
+      <div class="skills-container">
+        <div class="skill-item">
+          <div class="skill-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+            </svg>
+          </div>
+          <h3>كتابة المحتوى<br/><span style="font-size:14px; font-weight:normal;">(Copywriting & Content Writing)</span></h3>
+          <p>صياغة أفكار جذابة ومناسبة للجمهور المستهدف. كتابة بوستات تسويقية، تفاعلية، توعوية، وتعليمية.</p>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+            </svg>
+          </div>
+          <h3>تحليل الجمهور<br/><span style="font-size:14px; font-weight:normal;">(Audience Analysis)</span></h3>
+          <p>تحديد الفئة المستهدفة وفهم اهتماماتها ولغتها. تحديد Buyer Persona تناسب البراند.</p>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/>
+            </svg>
+          </div>
+          <h3>التخطيط للمحتوى<br/><span style="font-size:14px; font-weight:normal;">(Content Planning)</span></h3>
+          <p>إعداد خطة نشر شهرية وأفكار متسلسلة لحملات.</p>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-5 14H4v-4h11v4zm0-5H4V9h11v4zm5 5h-4V9h4v9z"/>
+            </svg>
+          </div>
+          <h3>إدارة السوشيال ميديا<br/><span style="font-size:14px; font-weight:normal;">(Social Media Management)</span></h3>
+          <p>جدولة ونشر المحتوى ومتابعة التفاعل.</p>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M19.59 6.69L21.99 8.99l-7.34 7.34-3.66-3.66L12 14.66l-1.99-1.99-1.99 1.99L7 13.66l2-2-2-2 1.01-1.01L8.99 9.01 10 10.01l1.99-1.99L14 10.01l2-2-2-2 1.99-1.99L19.59 6.69zM10 13.66l-1.99-1.99L5 12.66 7.01 14.66 10 13.66zm5-5l-1.99-1.99L11 8.66l1.99 1.99L15 8.66z"/>
+            </svg>
+          </div>
+          <h3>تحليل الأداء<br/><span style="font-size:14px; font-weight:normal;">(Content Performance Analysis)</span></h3>
+          <p>متابعة النتائج باستخدام أدوات مثل Insights وGoogle Analytics.</p>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+          </div>
+          <h3>أدوات التصميم والمحتوى</h3>
+          <p>Canva، ChatGPT، Google Docs، Google Sheet، Meta Business Suite، Trello.</p>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+            </svg>
+          </div>
+          <h3>إعداد Briefs والسكريبتات</h3>
+          <p>إعداد Briefs وكتابة سكريبتات للفيديوهات والريلز.</p>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+            </svg>
+          </div>
+          <h3>إعداد بريفات للتصميم</h3>
+          <p>إعداد بريفات واضحة ومتكاملة لفريق التصميم تتضمن الفكرة الأساسية والهدف من المحتوى مع اقتراح ريفرنسات بصرية.</p>
+        </div>
+      </div>
+
+      <h3 style="color:var(--primary-color); font-size:22px; margin-top:40px; margin-bottom:20px; text-align:right;">Soft Skills</h3>
+      <div class="skills-container">
+        <div class="skill-item">
+          <div class="skill-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+            </svg>
+          </div>
+          <h3>القدرة على الإبداع والابتكار</h3>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+            </svg>
+          </div>
+          <h3>إدارة الوقت وتنظيم المهام</h3>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.31-8.86c-1.77-.45-2.34-.94-2.34-1.67 0-.84.79-1.43 2.1-1.43 1.38 0 1.9.66 1.94 1.64h1.71c-.05-1.34-.87-2.57-2.49-2.97V5H10.9v1.69c-1.51.32-2.72 1.3-2.72 2.81 0 1.79 1.49 2.69 3.66 3.21 1.95.46 2.34 1.15 2.34 1.87 0 .53-.39 1.39-2.1 1.39-1.6 0-2.23-.72-2.32-1.64H8.04c.1 1.7 1.36 2.66 2.86 2.97V19h2.34v-1.67c1.52-.29 2.72-1.16 2.72-2.81 0-1.79-1.41-2.83-3.55-3.24z"/>
+            </svg>
+          </div>
+          <h3>المرونة في التعامل مع الملاحظات</h3>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 16l-5 2.72L7 16v-3.73L12 15l5-2.73V16z"/>
+            </svg>
+          </div>
+          <h3>القدرة على التعلم الذاتي</h3>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+          </div>
+          <h3>التواصل الفعّال</h3>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M9 11.24V7.5a2.5 2.5 0 0 1 5 0v3.74c1.21-.81 2-2.18 2-3.74C16 5.01 13.99 3 11.5 3S7 5.01 7 7.5c0 1.56.79 2.93 2 3.74zm9.84 4.63l-4.54-2.26c-.17-.07-.35-.11-.54-.11H13v-6c0-.83-.67-1.5-1.5-1.5S10 6.67 10 7.5v10.74l-3.43-.72c-.08-.01-.15-.03-.24-.03-.31 0-.59.13-.79.33l-.79.8 4.94 4.94c.27.27.65.44 1.06.44h6.79c.75 0 1.33-.55 1.44-1.28l.75-5.27c.01-.07.02-.14.02-.2 0-.62-.38-1.16-.91-1.38z"/>
+            </svg>
+          </div>
+          <h3>الاهتمام بالتفاصيل</h3>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+            </svg>
+          </div>
+          <h3>العمل الجماعي والتعاون</h3>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/>
+            </svg>
+          </div>
+          <h3>فهم احتياجات العميل</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- عملائي -->
+<section id="clients" class="section" style="padding:60px 10%; background:var(--background-color);">
+  <div class="section-content" style="text-align:center;">
+    <h2 style="font-size:28px; color:var(--primary-color); margin-bottom:20px;">عملائي</h2>
+    <p style="font-size:16px; line-height:1.8; margin-bottom:30px; color:var(--text-muted);">
+      اشتغلت مع أكتر من 25 عميل في مجالات متنوعة، وقدرت أفهم طبيعة كل مجال وهدفه وجمهوره، وده خلاني أقدر أقدّم محتوى يناسب هوية كل براند ويوصل رسالته بطريقة فعّالة ومؤثرة.
+    </p>
+
+    <h3 style="color:var(--primary-color); margin-top:30px; margin-bottom:25px; font-size:22px;">شركاء النجاح</h3>
+
+    <div class="img-container" style="
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+    ">
+      <img src="brands/001.jpeg" alt="">
+      <img src="brands/002.jpeg" alt="">
+      <img src="brands/003.jpeg" alt="">
+      <img src="brands/004.jpeg" alt="">
+      <img src="brands/005.jpeg" alt="">
+      <img src="brands/006.jpeg" alt="">
+      <img src="brands/007.jpeg" alt="">
+      <img src="brands/008.jpeg" alt="">
+      <img src="brands/009.jpeg" alt="">
+      <img src="brands/010.jpeg" alt="">
+      <img src="brands/011.jpeg" alt="">
+      <img src="brands/012.jpeg" alt="">
+      <img src="brands/013.jpeg" alt="">
+      <img src="brands/014.jpeg" alt="">
+      <img src="brands/015.jpeg" alt="">
+      <img src="brands/016.jpeg" alt="">
+      <img src="brands/017.jpeg" alt="">
+      <img src="brands/018.jpeg" alt="">
+      <img src="brands/019.jpeg" alt="">
+      <img src="brands/020.jpeg" alt="">
+      <img src="brands/021.jpeg" alt="">
+      <img src="brands/022.jpeg" alt="">
+      <img src="brands/023.jpeg" alt="">
+      <img src="brands/024.jpeg" alt="">
+      <img src="brands/025.jpeg" alt="">
+      <img src="brands/026.jpeg" alt="">
+    </div>
+  </div>
+</section>
+
+
+
+  <!-- خدماتي -->
+  <section id="services" class="section">
+    <div class="section-content">
+      <h2>خدماتي</h2>
+      <div class="services-container">
+        <div class="service-item">
+          <div class="service-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+            </svg>
+          </div>
+          <h3>إعداد استراتيجية المحتوى<br/><span style="font-size:14px; font-weight:normal;">(Content Strategy)</span></h3>
+        </div>
+
+        <div class="service-item">
+          <div class="service-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2zm-7 5h5v5h-5v-5z"/>
+            </svg>
+          </div>
+          <h3>تخطيط المحتوى وإدارة الجداول الشهرية<br/><span style="font-size:14px; font-weight:normal;">(Content Planning & Calendar Management)</span></h3>
+        </div>
+
+        <div class="service-item">
+          <div class="service-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+            </svg>
+          </div>
+          <h3>كتابة محتوى للسوشيال ميديا<br/><span style="font-size:14px; font-weight:normal;">(Social Media Content Writing)</span></h3>
+        </div>
+
+        <div class="service-item">
+          <div class="service-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4zM14 13h-3v3H9v-3H6v-2h3V8h2v3h3v2z"/>
+            </svg>
+          </div>
+          <h3>كتابة سكريبتات الريلز والفيديوهات القصيرة<br/><span style="font-size:14px; font-weight:normal;">(Script Writing for Reels & Videos)</span></h3>
+        </div>
+
+        <div class="service-item">
+          <div class="service-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/>
+            </svg>
+          </div>
+          <h3>كتابة إعلانات السوشيال ميديا<br/><span style="font-size:14px; font-weight:normal;">(Ad Copywriting)</span></h3>
+        </div>
+
+        <div class="service-item">
+          <div class="service-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+            </svg>
+          </div>
+          <h3>جدولة المحتوى ونشره<br/><span style="font-size:14px; font-weight:normal;">(Content Scheduling & Publishing)</span></h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Portfolio -->
+
+<section id="Portfolio" class="section ">
+  <!-- راس الصفحة -->
+  <div class="section-content">
+    <!-- أيقونة البراند -->
+    <div class="brand-image">
+      <img src="work/clean/cover.jpeg" alt="Brand Logo" />
+    </div>
+
+    <!-- وصف البراند -->
+    <div class="brand-description">
+      <h2>كلين زون</h2>
+      <p>
+        هو أستور متخصص في منتجات التنظيف ومستلزمات البيت، بيقدم أفضل الأسعار والعروض الأسبوعية في مدينة العاشر من رمضان، مع تركيز على التوفير والجودة للأمهات والعائلات.
+        اشتغلت على إدارة المحتوى والتسويق الرقمي للبراند، من تخطيط الحملات الإعلانية وصناعة الأفكار التفاعلية، لحد كتابة الكوبيز وتصميم الخطط الشهرية.
+      </p>
+    </div>
+  </div>
+
+  <!-- الكروت -->
+<div class="services-container">
+
+  <div class="service-item">
+    <div class="service-icon">
+      <img src="work/clean/1.jpeg" alt="">
+    </div>
+    <div class="service-text">
+      <p>
+        👀 خصومات كلين زون المرة دي مختلفة ومتنوعة  
+        💰 اشتري كل اللي محتاجاه لبيتك من منظفات لأدوات للمطبخ بأقل سعر  
+        <br>
+        للتفاصيل والطلب على رسايل الصفحة أو  
+        📲 كلمنا على: 01000931511  
+        📍 العاشر من رمضان - مجاورة ٧ - شارع C1 - بجوار هايبر الوادي الأخضر
+      </p>
+    </div>
+  </div>
+
+  <div class="service-item">
+    <div class="service-icon">
+      <img src="work/clean/2.jpeg" alt="">
+    </div>
+    <div class="service-text">
+      <p>
+        🔥 كلين زون جمعلك كل احتياجات البيبي في مكان واحد وبأسعار على قد الإيد  
+        ✅ حفاضات بأنواع وأحجام مختلفة  
+        ✅ شامبو ولوشن للأطفال  
+        ✅ مناديل مبللة  
+        ✅ كل أساسيات البيبي  
+        <br>
+        للتفاصيل والطلب على رسايل الصفحة أو  
+        📲 كلمنا على: 01000931511  
+        📍 العاشر من رمضان - مجاورة ٧ - شارع C1 - بجوار هايبر الوادي الأخضر
+      </p>
+    </div>
+  </div>
+
+  <div class="service-item">
+    <div class="service-icon">
+      <img src="work/clean/3.jpeg" alt="">
+    </div>
+    <div class="service-text">
+      <p>
+        😉 اللبس أسود سهل يبهت بسرعة، بس الشاطرة اللي تعرف تحافظ على لونه  
+        عرفينا في الكومنتات هتختاري إيه؟  
+        🎁 وممكن تكوني من الكسبانين  
+        <br>
+        للتفاصيل والطلب على رسايل الصفحة أو  
+        📲 كلمنا على: 01000931511  
+        📍 العاشر من رمضان - مجاورة ٧ - شارع C1 - بجوار هايبر الوادي الأخضر
+      </p>
+    </div>
+  </div>
+
+</div>
+
+  <!-- راس الصفحة -->
+  <div class="section-content">
+    <!-- أيقونة البراند -->
+    <div class="brand-image">
+      <img src="work/Coffee/cover.jpeg" alt="Brand Logo" />
+    </div>
+
+    <!-- وصف البراند -->
+    <div class="brand-description">
+      <h2>  19 Coffee </h2>
+      <p>
+
+كافيه شبابي في العاشر من رمضان بيقدم مشروبات وحلويات متنوعة بجو عصري ومبهج.
+شاركت في وضع استراتيجية المحتوى وصناعة أفكار الحملات بطريقة لذيذة وشبابية.
+      </p>
+    </div>
+  </div>
+
+  <!-- الكروت -->
+<div class="services-container">
+
+  <div class="service-item">
+    <div class="service-icon">
+      <img src="work/Coffee/1.jpeg" alt="">
+    </div>
+    <div class="service-text">
+      <p>
+كافيه 19..
+Spot جديد بفايبس مختلفة
+ مستنينك تيجي تعيشها.😉🖤
+
+📍مجاورة 19 بعد صنية نادي الرواد
+      </p>
+    </div>
+  </div>
+
+  <div class="service-item">
+    <div class="service-icon">
+      <img src="work/Coffee/2.jpeg" alt="">
+    </div>
+    <div class="service-text">
+      <p>
+   كل فاتورة هتعدي ال 100 جنيه = فرصة سحب على رحلة يوم كامل علي اليخت ف العين السخنة من 19🎉
+اشرب مشروبك واكسب رحلة كمان😉
+
+العرض لمدة أسبوع بس من الخميس 16/10 للخميس 23/10⏳️
+نورنا في المكان ممكن تكون الكسبان.🖤
+
+📍مجاورة 19 بعد صنية نادي الرواد
+      </p>
+    </div>
+  </div>
+
+  <div class="service-item">
+    <div class="service-icon">
+      <img src="work/Coffee/3.jpeg" alt="">
+    </div>
+    <div class="service-text">
+      <p>
+      مفيش أحلى من مشروب منعش مع ديزيرت لذيذة تكمل بيهم يومك.🍰🥤
+جربهم دلوقتي في كافيه 19.🖤
+
+📍مجاورة 19 بعد صنية نادي الرواد
+      </p>
+    </div>
+  </div>
+
+</div>
+
+  <!-- راس الصفحة -->
+  <div class="section-content">
+    <!-- أيقونة البراند -->
+    <div class="brand-image">
+      <img src="work/Heaven/cover.jpeg" alt="Brand Logo" />
+    </div>
+
+    <!-- وصف البراند -->
+    <div class="brand-description">
+      <h2>  Heaven Kitchen and modern Furniture  </h2>
+      <p>
+اشتغلت على إدارة وصناعة المحتوى البصري والكتابي لبراند Heaven المتخصص في تصميم وتنفيذ المطابخ والدريسنج وغرف النوم، وركّزت على تطوير أسلوب التواصل البصري والهوية الإعلانية بشكل يبرز فخامة الخامات وتميز التصميمات.
+      </p>
+    </div>
+  </div>
+
+  <!-- الكروت -->
+<div class="services-container">
+
+  <div class="service-item">
+    <div class="service-icon">
+      <img src="work/Heaven/1.jpeg" alt="">
+    </div>
+    <div class="service-text">
+      <p>
+مطبخ الخشمونيوم مش زي أي مطبخ😎
+الخشمونيوم فيه كل المميزات اللي ممكن تدوري عليها، مطبخ بيجمع بين الشكل الكلاسيك والمودرن، شوفي مواصفاته بنفسك:
+🔸 مقاوم للحشرات والفطريات.
+🔸 مظهره أنيق وشبيه بالخشب.
+🔸 سهولة التنظيف والصيانة.
+🔸 عمره الافتراضي طويل.
+🔸 تنوع التصميم والألوان.
+
+اختاري مطبخك بتفاصيل تعيش العمر كله مع Heaven.👌❤
+
+📩 للاستفسار كلمنا على رسايل الصفحة
+📲 أو تواصل معنا على:
+01028895393
+      </p>
+    </div>
+  </div>
+
+  <div class="service-item">
+    <div class="service-icon">
+      <img src="work/Heaven/2.jpeg" alt="">
+    </div>
+    <div class="service-text">
+      <p>
+أنت مش بتختار آثاث❌
+مع Heaven، بتختار جودة وخبرة وتقفيل يعيش لسنين، كل حاجة بتكون معمولة بعناية تضيف قيمة لآثاثك  
+(مطابخ بأنواعها- أوض نوم- دريسينج- سفرة...)
+
+كل دا بتصاميم مودرن وخامات قوية ومضمونة 100% وفنش راقي يليق بذوقك.❤
+
+ابعتلنا دلوقتي واختار راحتك مع Heaven.
+👈 متاح تقسيط Value و أمان 
+📩 للاستفسار كلمنا على رسايل الصفحة
+📲 أو تواصل معنا على:
+01028895393
+      </p>
+    </div>
+  </div>
+
+  <div class="service-item">
+    <div class="service-icon">
+      <img src="work/Heaven/3.jpeg" alt="">
+    </div>
+    <div class="service-text">
+      <p>
+مطبخك أكتر مكان بتقضي فيه وقتك
+؛ وعشان كدا لازم يكون عملي ومريح❤️
+
+ودا اللي بنعمله في Heaven، كلادينج مخصوص عشانك:
+✨️ تصميمه يناسب مساحتك تتحركي فيه براحتك.
+✨️مقاوم للعوامل الجوية زي الرطوبة والماء، ومقاوم للخدش، وسهل في تنظيفه.
+✨️متانة وعمر طويل يتحمل الاستعمال اليومي من غير ما يغير لونه.
+
+ابعتيلنا دلوقتي وشوفي مطبخك قبل التنفيذ 3d مجانًا.
+
+👈 متاح تقسيط Value و أمان 
+📩 للاستفسار كلمنا على رسايل الصفحة
+📲 أو تواصل معنا على:
+01028895393
+      </p>
+    </div>
+  </div>
+
+</div>
+
+  <!-- راس الصفحة -->
+  <div class="section-content">
+    <!-- أيقونة البراند -->
+    <div class="brand-image">
+      <img src="work/EGROBOTS/cover.jpeg" alt="Brand Logo" />
+    </div>
+
+    <!-- وصف البراند -->
+    <div class="brand-description">
+      <h2>  EGROBOTS </h2>
+      <p>
+
+براند مصري بيقدّم حلول تكنولوجية متكاملة للزراعة الذكية، من خلال روبوتات ميدانية وتطبيقات إدارة متطورة بتساعد أصحاب المزارع على المتابعة الدقيقة وزيادة الإنتاجية.
+اشتغلت على تطوير الهوية الرقمية للبراند من خلال:
+إعداد وتنفيذ خطة محتوى شهرية متكاملة (بيعية – توعوية – تفاعلية).
+كتابة نصوص دعائية وسوشيال ميديا بوستات موجهة لمديري المزارع والمستثمرين.
+      </p>
+    </div>
+  </div>
+
+  <!-- الكروت -->
+<div class="services-container">
+
+  <div class="service-item">
+    <div class="service-icon">
+      <img src="work/EGROBOTS/1.jpeg" alt="">
+    </div>
+    <div class="service-text">
+      <p>
+بتبيع محصولك بتقدير عشوائي لكميته؟
+
+روبوت EGROBOTS بيعد لك الثمار بدقة ويعطيك تقدير واضح لكل فدان بالأرقام
+وبالتالي هيساعدك: 
+✅️تخطط أفضل للتسويق والمواسم الجاية.
+✅️تقدر القيمة الحقيقية لمزرعتك وسعرها.
+
+احجز ديمو دلوقتي وزود ارباحك مع EGROBOTS.
+#Egrobots
+#Egro_Scout
+#ايجرو_معاك
+      </p>
+    </div>
+  </div>
+
+  <div class="service-item">
+    <div class="service-icon">
+      <img src="work/EGROBOTS/2.jpeg" alt="">
+    </div>
+    <div class="service-text">
+      <p>
+تقارير ضايعة 
+حسابات مش دقيقة 
+دي مشاكل هتقابلك وأنت بتدير مزرعتك والنتيجة فلوس بتخسرها من غير ما تحس💁‍♂️
+
+في EGROCARE PRO هتلاقي تقارير شاملة ومفصلة متاحة قدامك بسهولة ومن غير أخطاء.
+
+📥نزله على موبايلك دلوقتي وخلي إدارتك أسهل 
+📲  Android:
+https://play.google.com/store/apps/details?id=com.egrobots.pro.egrocare&pcampaignid=web_share
+
+📲  iOS:
+https://apps.apple.com/us/app/egro-care-pro/id6479579059
+
+#Egrobots
+#egro_care_pro
+#ايجرو_معاك
+      </p>
+    </div>
+  </div>
+
+  <div class="service-item">
+    <div class="service-icon">
+      <img src="work/EGROBOTS/3.jpeg" alt="">
+    </div>
+    <div class="service-text">
+      <p>
+👈كل عامل له دور كبير في نجاح مزرعتك أو خسارتها
+
+وعشان كدا سيستم EGROCARE PRO بيساعدك تتابع أداء كل عامل ومدى التزامه بمهامه، وتتابع كل مهمة بشكل دقيق وتتأكد من تنفيذها في وقتها.
+
+يعني هتقدر:
+
+✔️تتابع شغل كل عامل: تعرف مين قام بمهامه بالكامل ومين محتاج متابعة إضافية.
+
+✔️تتابع كل مهمة: من الزراعة للري والتسميد والحصاد ومتفوتش أي حاجة.
+
+✔️توفر وقتك: هتلاقي كل المعلومات بشكل منظم وسهل الوصول لها في أي وقت.
+
+✔️تحسن الإنتاجية: فتقدر تتخذ قرارات سريعة وصحيحة عشان تحافظ على كفاءة فريقك وتحقيق أفضل النتائج.
+
+📥 احجز Demo دلوقتي، وابدأ تحكم في شغلك بدون مجهود زيادة أو خسائر غير متوقعة.
+      </p>
+    </div>
+  </div>
+
+</div>
+
+  <!-- راس الصفحة -->
+  <div class="section-content">
+    <!-- أيقونة البراند -->
+    <div class="brand-image">
+      <img src="work/Artiques/cover.jpeg" alt="Brand Logo" />
+    </div>
+
+    <!-- وصف البراند -->
+    <div class="brand-description">
+      <h2>  Artiques Gallery  </h2>
+      <p>
+
+براند بيقدم تحف وانتيكات كلاسيك راقية، اشتغلت على صناعة المحتوى البصري والكتابي بطريقة تبرز فخامة المنتجات الكلاسيك بما يناسب مع الجمهور.
+      </p>
+    </div>
+  </div>
+
+  <!-- الكروت -->
+<div class="services-container">
+
+  <div class="service-item">
+    <div class="service-icon">
+      <img src="work/Artiques/1.jpeg" alt="">
+    </div>
+    <div class="service-text">
+      <p>
+أنتِ من الناس اللي بتخطفها التفاصيل الرقيقة؟💫
+بتحبي الجمال الهادي، وبتفضلي اللمسة الكلاسيك في البيت؟ 
+يبقى القطع دي لازم تكون في ركن عندك🥰
+
+ابعتيلنا دلوقتي وخلي شكل بيتك فخم وشيك.
+
+للتواصل واتساب 🪻01029694115 
+📍مول الرؤي - مجاورة 26 - الدور الاول علوي
+      </p>
+    </div>
+  </div>
+
+  <div class="service-item">
+    <div class="service-icon">
+      <img src="work/Artiques/2.jpeg" alt="">
+    </div>
+    <div class="service-text">
+      <p>
+الجمال الحقيقي عمره ما بيتأثر بالوقت. ⏳
+زي كل قطعة كلاسيك بنعرضها في Artiques، كل تفصيلة فيها بتحكي عن زمن عدى، بس لسه جمالها عايش لحد النهارده.🧡
+
+اطلبيها دلوقتي، وخلي ذكريات زمان تتحكي في بيتك.🥰
+
+ 📍 مول الرؤى – مجاورة 26 – الدور الأول علوي
+📲 للتواصل واتساب: 01029694115
+      </p>
+    </div>
+  </div>
+
+  <div class="service-item">
+    <div class="service-icon">
+      <img src="work/Artiques/3.jpeg" alt="">
+    </div>
+    <div class="service-text">
+      <p>
+فازات Artiques gallery بخصم يصل ل 10%🔥
+
+اختاري من أجدد تشكيلة فازات وضيفي لمسة للمكان مميزة.🧡
+Small detail, big impact✨
+📌متاح التوصيل
+ للتواصل واتساب 🪻01029694115 
+📍مول الرؤي - مجاورة 26 - الدور الاول علوي
+<a href="https://www.facebook.com/share/r/1CWzVyc874/">https://www.facebook.com/share/r/1CWzVyc874/</a>
+      </p>
+    </div>
+  </div>
+
+</div>
+
+<!-- تصمميات -->
+   <div class="section-content">
+    <!-- أيقونة البراند -->
+    <div class="brand-image">
+      <img src="work/UPVC/cover.jpeg" alt="Brand Logo" />
+    </div>
+
+    <!-- وصف البراند -->
+    <div class="brand-description">
+      <h2> المتحدة للواجهات والأبواب والشبابيك ال UPVC  </h2>
+
+    </div>
+  </div>
+
+  <!-- الكروت -->
+<div class="portfolio-images-grid">
+      <img src="work/UPVC/1.jpeg" alt="UPVC Work 1">
+      <img src="work/UPVC/2.jpeg" alt="UPVC Work 2">
+      <img src="work/UPVC/3.jpeg" alt="UPVC Work 3">
+</div>
+
+   <div class="section-content">
+    <!-- أيقونة البراند -->
+    <div class="brand-image">
+      <img src="work/Candy/cover.jpeg" alt="Brand Logo" />
+    </div>
+
+    <!-- وصف البراند -->
+    <div class="brand-description">
+      <h2>Candy Crunch   </h2>
+
+    </div>
+  </div>
+
+  <!-- الكروت -->
+<div class="portfolio-images-grid">
+      <img src="work/Candy/1.jpeg" alt="UPVC Work 1">
+      <img src="work/Candy/2.jpeg" alt="UPVC Work 2">
+      <img src="work/Candy/3.jpeg" alt="UPVC Work 3">
+</div>
+
+   <div class="section-content">
+    <!-- أيقونة البراند -->
+    <div class="brand-image">
+      <img src="work/Pesto/cover.jpeg" alt="Brand Logo" />
+    </div>
+
+    <!-- وصف البراند -->
+    <div class="brand-description">
+      <h2>Pesto Market</h2>
+
+    </div>
+  </div>
+
+  <!-- الكروت -->
+<div class="portfolio-images-grid">
+    <img src="work/Pesto/1.jpeg" alt="">
+        <img src="work/Pesto/2.jpeg" alt="">
+            <img src="work/Pesto/3.jpeg" alt="">
+</div>
+
+  <div class="section-content">
+    <!-- أيقونة البراند -->
+    <div class="brand-image">
+      <img src="work/cars/cover.jpeg" alt="Brand Logo" />
+    </div>
+
+    <!-- وصف البراند -->
+    <div class="brand-description">
+      <h2>الوكيل لتجارة السيارات </h2>
+
+    </div>
+  </div>
+
+  <!-- الكروت -->
+<div class="portfolio-images-grid">
+<img src="work/cars/1.jpeg" alt="">
+<img src="work/cars/2.jpeg" alt="">
+<img src="work/cars/3.jpeg" alt="">
+</div>
+
+
+  <div class="section-content">
+    <!-- أيقونة البراند -->
+    <div class="brand-image">
+      <img src="work/Pioneers/cover.jpeg" alt="Brand Logo" />
+    </div>
+
+    <!-- وصف البراند -->
+    <div class="brand-description">
+      <h2>  Pioneers Dental clinic  </h2>
+
+    </div>
+  </div>
+
+  <!-- الكروت -->
+<div class="portfolio-images-grid">
+<img src="work/Pioneers/1.jpeg" alt="">
+<img src="work/Pioneers/2.jpeg" alt="">
+<img src="work/Pioneers/3.jpeg" alt="">
+</div>
+
+
+ <div class="section-content">
+    <!-- أيقونة البراند -->
+    <div class="brand-image">
+      <img src="work/KIM/cover.jpeg" alt="Brand Logo" />
+    </div>
+
+    <!-- وصف البراند -->
+    <div class="brand-description">
+      <h2>    KIM WOK   </h2>
+
+    </div>
+  </div>
+
+  <!-- الكروت -->
+<div class="portfolio-images-grid">
+<img src="work/KIM/1.jpeg" alt="">
+<img src="work/KIM/2.jpeg" alt="">
+<img src="work/KIM/3.jpeg" alt="">
+</div>
+
+ <div class="section-content">
+    <!-- أيقونة البراند -->
+    <div class="brand-image">
+      <img src="work/Eagle/cover.jpeg" alt="Brand Logo" />
+    </div>
+
+    <!-- وصف البراند -->
+    <div class="brand-description">
+      <h2>    Eagle Delivery Services   </h2>
+
+    </div>
+  </div>
+
+  <!-- الكروت -->
+<div class="portfolio-images-grid">
+<img src="work/Eagle/1.jpeg" alt="">
+<img src="work/Eagle/2.jpeg" alt="">
+<img src="work/Eagle/3.jpeg" alt="">
+</div>
+
+</section>
+
+
+
+</main>
+
+<footer>
+  <p>© 2025 All Rights Reserved - <strong>Menna Mahmoud Esmail</strong></p>
+
+</footer>
+
+<script>
+function showSection(id, btn) {
+  document.querySelectorAll('.section').forEach(sec=>sec.classList.remove('active'));
+  document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+
+// Image Lightbox/Modal functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const modal = document.createElement('div');
+  modal.className = 'image-modal';
+  modal.innerHTML = '<span class="image-modal-close">&times;</span><img class="image-modal-content" src="" alt="">';
+  document.body.appendChild(modal);
+  
+  const modalImg = modal.querySelector('.image-modal-content');
+  const closeBtn = modal.querySelector('.image-modal-close');
+  
+  // Get all images in Portfolio section
+  const portfolioImages = document.querySelectorAll('#Portfolio .service-icon img, #Portfolio .portfolio-images-grid img, #Portfolio .brand-image img');
+  
+  // Add click event to all portfolio images
+  portfolioImages.forEach(img => {
+    img.addEventListener('click', function() {
+      modal.classList.add('active');
+      modalImg.src = this.src;
+      modalImg.alt = this.alt || 'Portfolio Image';
+      document.body.style.overflow = 'hidden'; // Prevent body scroll
+    });
+  });
+  
+  // Close modal when clicking the close button
+  closeBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    closeModal();
+  });
+  
+  // Close modal when clicking outside the image
+  modal.addEventListener('click', function(e) {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+  
+  // Close modal with ESC key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal.classList.contains('active')) {
+      closeModal();
+    }
+  });
+  
+  function closeModal() {
+    modal.classList.remove('active');
+    document.body.style.overflow = ''; // Restore body scroll
+  }
+});
+</script>
+
+</body>
+</html>
