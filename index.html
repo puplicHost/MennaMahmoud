@@ -32,10 +32,69 @@
   .cv-button:hover { background:var(--primary-dark); transform:translateY(-2px); box-shadow:0 4px 12px rgba(82,47,149,0.4); }
   .about { flex:1; font-size:16px; line-height:1.8; color:var(--text-muted); text-align:right; margin-top:20px; }
 
-  nav { display:flex; justify-content:center; flex-wrap:wrap; background:var(--primary-color); padding:15px; position:sticky; top:0; z-index:100; box-shadow:0 2px 8px rgba(0,0,0,0.1); }
-  nav button { background:none; border:none; font-size:18px; margin:5px 15px; cursor:pointer; color:var(--background-color); padding:10px 20px; border-radius:8px; transition:0.3s; }
+  nav { 
+    display:flex; 
+    justify-content:center; 
+    align-items:center;
+    background:var(--primary-color); 
+    padding:15px; 
+    position:sticky; 
+    top:0; 
+    z-index:100; 
+    box-shadow:0 2px 8px rgba(0,0,0,0.1); 
+  }
+  
+  nav button { 
+    background:none; 
+    border:none; 
+    font-size:18px; 
+    margin:5px 15px; 
+    cursor:pointer; 
+    color:var(--background-color); 
+    padding:10px 20px; 
+    border-radius:8px; 
+    transition:0.3s; 
+  }
+  
   nav button:hover { background:var(--primary-dark); }
-  nav button.active { background:var(--background-color); color:var(--primary-color); font-weight:bold; box-shadow:0 2px 6px rgba(0,0,0,0.15); }
+  nav button.active { 
+    background:var(--background-color); 
+    color:var(--primary-color); 
+    font-weight:bold; 
+    box-shadow:0 2px 6px rgba(0,0,0,0.15); 
+  }
+  
+  /* Hamburger menu button - hidden by default on desktop */
+  .nav-toggle {
+    display: none;
+    background: var(--background-color);
+    border: 2px solid var(--background-color);
+    border-radius: 8px;
+    color: var(--primary-color);
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 12px 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    z-index: 101;
+    min-width: 50px;
+    min-height: 50px;
+  }
+  
+  .nav-toggle:hover {
+    background: rgba(248, 230, 201, 0.9);
+    transform: scale(1.05);
+  }
+  
+  /* Navigation menu - visible by default on desktop */
+  .nav-menu {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0;
+  }
 
   .section { display:none; padding:40px 10%; background:var(--background-color); margin:30px auto; border-radius:12px; max-width:1000px; box-shadow:0 2px 10px rgba(0,0,0,0.05); border-right:5px solid var(--primary-color); animation:fadeIn 0.5s ease; }
   .section.active { display:flex; flex-direction:column; gap:30px; }
@@ -76,14 +135,84 @@
   @media(max-width:768px){
     header { flex-direction:column; align-items:flex-start; padding:20px 5%; }
     .profile { flex-direction:row; }
-    .about { margin-top:15px; }
-    nav { flex-direction:column; gap:5px; }
+    .about { margin-top:15px; font-size:15px; }
+    
+    /* Hamburger menu for mobile */
+    .nav-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    
+    nav {
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 15px 70px 15px 15px;
+      position: relative;
+      min-height: 60px;
+    }
+    
+    .nav-menu {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      gap: 8px;
+      margin-top: 10px;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--primary-color);
+      padding: 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      border-radius: 0 0 8px 8px;
+    }
+    
+    .nav-menu.active {
+      display: flex;
+    }
+    
+    nav button {
+      width: 100%;
+      margin: 0;
+      padding: 15px 20px;
+      font-size: 16px;
+      text-align: right;
+      min-height: 48px;
+      touch-action: manipulation;
+    }
+    
     .portfolio-container { grid-template-columns:1fr; }
+    
+    /* تحسين حجم الخطوط */
+    .profile-info h1 { font-size:20px; }
+    .profile-info p { font-size:14px; }
+    .cv-button { padding:10px 20px; font-size:14px; }
+    
+    /* تحسين الأقسام */
+    .section { padding:25px 5%; }
+    .section h2 { font-size:20px; }
+    .section p, .section ul { font-size:15px; }
   }
 
   @media(max-width:480px){
-    .section { padding:30px 5%; margin:20px 0; }
+    .section { padding:20px 4%; margin:15px 0; }
     .skill-level { font-size:12px; padding-right:5px; }
+    
+    header { padding:15px 4%; }
+    .profile img { width:80px; height:80px; }
+    .profile-info h1 { font-size:18px; }
+    .profile-info p { font-size:13px; }
+    
+    nav button { padding:12px 15px; font-size:15px; }
+    
+    .section h2 { font-size:18px; }
+    .section p, .section ul { font-size:14px; }
   }
 
   #portfolio {
@@ -336,6 +465,8 @@
   padding: 20px;
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
+  overflow: hidden;
+  min-width: 0;
 }
 
 .service-item:hover {
@@ -372,6 +503,8 @@
   flex: 1;
   display: flex;
   align-items: center;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .service-text p {
@@ -381,6 +514,9 @@
   margin: 0;
   text-align: right;
   white-space: pre-line;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
 }
 
 /* Portfolio images grid for images without text */
@@ -526,12 +662,16 @@
   .service-text {
     width: 100%;
     align-items: flex-start;
+    overflow: hidden;
   }
 
   .service-text p {
     text-align: right;
     font-size: 15px;
     line-height: 1.8;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
   }
 
   .portfolio-images-grid {
@@ -541,6 +681,25 @@
 
   .portfolio-images-grid img {
     height: 250px;
+  }
+  
+  /* تحسين حجم الصور والكروت */
+  .service-icon {
+    height: 220px;
+  }
+  
+  #Portfolio .brand-image img {
+    width: 120px;
+    height: 120px;
+  }
+  
+  #Portfolio .brand-description h2 {
+    font-size: 22px;
+  }
+  
+  #Portfolio .brand-description p {
+    font-size: 15px;
+    line-height: 1.7;
   }
 }
 
@@ -589,14 +748,15 @@
 
 <main>
   <nav>
-    <button class="active" onclick="showSection('experience', this)">خبرتي العملية</button>
-    <button onclick="showSection('skills', this)">مهاراتي</button>
-    <button onclick="showSection('clients', this)">عملائي</button>
-    <button onclick="showSection('services', this)">خدماتي</button>
-    <button onclick="showSection('education', this)">التعليم</button>
-   <button onclick="showSection('Portfolio', this)">اعمالى</button>
-    
-   
+    <button class="nav-toggle" onclick="toggleNavMenu()" aria-label="Toggle menu">☰</button>
+    <div class="nav-menu" id="navMenu">
+      <button class="active" onclick="showSection('experience', this)">خبرتي العملية</button>
+      <button onclick="showSection('skills', this)">مهاراتي</button>
+      <button onclick="showSection('clients', this)">عملائي</button>
+      <button onclick="showSection('services', this)">خدماتي</button>
+      <button onclick="showSection('education', this)">التعليم</button>
+      <button onclick="showSection('Portfolio', this)">اعمالى</button>
+    </div>
   </nav>
 
   <!-- خبرتي العملية -->
@@ -1504,6 +1664,21 @@ function showSection(id, btn) {
   document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   btn.classList.add('active');
+  
+  // Close mobile menu after selecting a section
+  if (window.innerWidth <= 768) {
+    const navMenu = document.getElementById('navMenu');
+    if (navMenu) {
+      navMenu.classList.remove('active');
+    }
+  }
+}
+
+function toggleNavMenu() {
+  const navMenu = document.getElementById('navMenu');
+  if (navMenu) {
+    navMenu.classList.toggle('active');
+  }
 }
 
 // Image Lightbox/Modal functionality
